@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Double?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1023.0" prefWidth="1612.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LaunchPadSystemsController">
+   <children>
+      <Label alignment="CENTER" layoutX="504.0" prefHeight="101.0" prefWidth="573.0" text="Launch Pad Systems" textFill="#f2cd16" AnchorPane.bottomAnchor="922.0" AnchorPane.leftAnchor="504.0" AnchorPane.rightAnchor="535.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font name="Cooper Black" size="36.0" />
+         </font>
+      </Label>
+      <GridPane layoutX="4.0" layoutY="103.0" prefHeight="923.0" prefWidth="597.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="1011.0" AnchorPane.topAnchor="100.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="437.0" minHeight="10.0" prefHeight="437.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="502.0" minHeight="10.0" prefHeight="437.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TitledPane alignment="CENTER" animated="false" prefHeight="765.0" prefWidth="597.0" text="Camera 1 Feed">
+              <content>
+                <AnchorPane fx:id="camera1Feed" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+               <font>
+                  <Font name="Cooper Black" size="14.0" />
+               </font>
+            </TitledPane>
+            <TitledPane alignment="CENTER" animated="false" prefHeight="754.0" prefWidth="597.0" text="Camera 2 Feed" GridPane.rowIndex="1">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="453.0" prefWidth="595.0" />
+              </content>
+               <font>
+                  <Font name="Cooper Black" size="14.0" />
+               </font>
+            </TitledPane>
+         </children>
+      </GridPane>
+      <Pane fx:id="fillLine2" layoutX="597.0" layoutY="99.0" prefHeight="924.0" prefWidth="1017.0" style="-fx-background-color: GREY;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <ImageView fitHeight="252.0" fitWidth="844.0" layoutX="450.0" layoutY="302.0" rotate="90.0">
+               <image>
+                  <Image url="@../../../Desktop/bigchung.png" />
+               </image>
+            </ImageView>
+            <Rectangle fx:id="nitrogenTank" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="179.0" layoutX="42.0" layoutY="695.0" stroke="BLACK" strokeType="INSIDE" width="85.0" />
+            <Label alignment="CENTER" layoutX="42.0" layoutY="776.0" prefHeight="17.0" prefWidth="85.0" text="N2O">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Polygon fx:id="sol1" layoutX="301.0" layoutY="657.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" style="-fx-scale-x: .3; -fx-scale-y: .3;">
+              <points>
+                <Double fx:value="-50.0" />
+                <Double fx:value="40.0" />
+                <Double fx:value="50.0" />
+                <Double fx:value="40.0" />
+                <Double fx:value="0.0" />
+                <Double fx:value="-60.0" />
+              </points>
+            </Polygon>
+            <Polygon fx:id="sol2" layoutX="330.0" layoutY="657.0" rotate="-90.0" stroke="BLACK" strokeType="INSIDE" style="-fx-scale-x: .3; -fx-scale-y: .3;">
+               <points>
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="40.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="40.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-60.0" />
+               </points>
+            </Polygon>
+            <Polygon layoutX="418.0" layoutY="656.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" style="-fx-scale-x: .3; -fx-scale-y: .3;">
+               <points>
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="40.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="40.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-60.0" />
+               </points>
+            </Polygon>
+            <Polygon layoutX="447.0" layoutY="656.0" rotate="-90.0" stroke="BLACK" strokeType="INSIDE" style="-fx-scale-x: .3; -fx-scale-y: .3;">
+               <points>
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="40.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="40.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-60.0" />
+               </points>
+            </Polygon>
+            <Label alignment="CENTER" layoutX="286.0" layoutY="665.0" prefHeight="17.0" prefWidth="60.0" text="Fill Soln.">
+               <font>
+                  <Font name="System Bold" size="10.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="404.0" layoutY="665.0" prefHeight="17.0" prefWidth="60.0" text="Dump Soln.">
+               <font>
+                  <Font name="System Bold" size="10.0" />
+               </font>
+            </Label>
+            <Line fx:id="fillLineE" endX="101.0" layoutX="183.0" layoutY="647.0" startX="-97.0" stroke="RED" strokeWidth="5.0" />
+            <Line fx:id="fillLineF" endX="-101.5" endY="151.0" layoutX="186.0" layoutY="544.0" startX="-100.5" startY="103.0" stroke="RED" strokeWidth="5.0" />
+            <Line fx:id="ignitionLineD" endX="184.0" endY="-4.0" layoutX="736.0" layoutY="803.0" startX="184.0" startY="18.0" stroke="RED" strokeWidth="3.0" />
+            <Line fx:id="fillLineD" endX="184.0" endY="-12.0" layoutX="746.0" layoutY="813.0" startX="184.0" startY="20.5" stroke="RED" strokeWidth="5.0" />
+            <Line fx:id="fillLineC" endX="183.0" endY="-14.0" layoutX="747.0" layoutY="848.0" startX="-247.5" startY="-14.0" stroke="RED" strokeWidth="5.0" />
+            <Line fx:id="ignitionLineC" endX="163.0" endY="-34.5" layoutX="757.0" layoutY="858.0" startX="-240.5" startY="-34.5" stroke="RED" strokeWidth="3.0" />
+            <Line fx:id="fillLineB" endX="21.0" endY="280.5" layoutX="478.0" layoutY="553.0" startX="21.0" startY="94.5" stroke="RED" strokeWidth="5.0" />
+            <Line fx:id="fillLineA" endX="-5.0" endY="53.0" layoutX="504.0" layoutY="594.0" startX="-42.0" startY="53.0" stroke="RED" strokeWidth="5.0" />
+            <Line fx:id="centerFillLine" endX="17.0" endY="26.0" layoutX="384.0" layoutY="620.0" startX="-37.0" startY="27.0" stroke="RED" strokeWidth="5.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2cd16" height="55.0" layoutX="264.0" layoutY="428.0" stroke="BLACK" strokeType="INSIDE" width="102.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2cd16" height="55.0" layoutX="265.0" layoutY="337.0" stroke="BLACK" strokeType="INSIDE" width="102.0" />
+            <Label alignment="CENTER" layoutX="269.0" layoutY="356.0" prefHeight="17.0" prefWidth="95.0" text="GSE" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="283.0" layoutY="447.0" text="Relay Board" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Line endX="-200.0" endY="36.0" layoutX="516.0" layoutY="392.0" startX="-200.0" />
+            <Line endX="-110.0" endY="382.0" layoutX="425.0" layoutY="265.0" startX="-135.0" startY="218.0" />
+            <Line endX="-83.0" endY="121.0" layoutX="516.0" layoutY="525.0" startX="-179.0" startY="-42.0" />
+            <Line fx:id="ignitionLineB" endX="-140.0" endY="-96.0" layoutX="656.0" layoutY="554.0" startX="-140.0" startY="269.0" stroke="RED" strokeWidth="3.0" />
+            <Line fx:id="ignitionLineA" endY="-0.5" layoutX="516.0" layoutY="456.0" startX="-150.0" startY="-0.5" stroke="RED" strokeWidth="3.0" />
+         </children>
+      </Pane>
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="129.0" text="Camera 1 Port: " textFill="WHITE" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font name="Cooper Black" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutY="34.0" prefHeight="17.0" prefWidth="129.0" text="Camera 2 Port: " textFill="WHITE" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="44.0">
+         <font>
+            <Font name="Cooper Black" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="cameraPort1Field" layoutX="119.0" layoutY="6.0" />
+      <TextField fx:id="cameraPort2Field" layoutX="119.0" layoutY="43.0" />
+      <Button fx:id="cameraPortEnter" layoutX="295.0" layoutY="6.0" mnemonicParsing="false" onAction="#setCameraPortFields" prefHeight="25.0" prefWidth="149.0" text="Enter">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="cameraPortClear" layoutX="295.0" layoutY="40.0" mnemonicParsing="false" onAction="#resetCameraPortFields" prefHeight="25.0" prefWidth="149.0" text="Clear">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="1449.0" layoutY="10.0" prefHeight="30.0" prefWidth="149.0" text="Wifi Strength : " textFill="WHITE" AnchorPane.rightAnchor="2.0">
+         <font>
+            <Font name="Cooper Black" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="882.0" prefWidth="1674.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControlSystemsController">
+   <children>
+      <GridPane layoutX="1.0" layoutY="113.0" prefHeight="569.0" prefWidth="996.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="62.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TitledPane alignment="CENTER" animated="false" text="Telemetry Systems ">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="650.0" prefWidth="835.0" style="-fx-background-color: BLACK;">
+                     <children>
+                        <GridPane layoutX="-2.0" prefHeight="383.0" prefWidth="418.0" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="-10.0" AnchorPane.topAnchor="-10.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button fx:id="startAltButton" mnemonicParsing="false" onAction="#altDataGo" prefHeight="188.0" prefWidth="418.0" style="-fx-border-color: BLACK; -fx-background-radius: 10;" text="Start Altitude">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="stopAltButton" mnemonicParsing="false" onAction="#altDataStop" prefHeight="199.0" prefWidth="418.0" style="-fx-border-color: BLACK; -fx-background-radius: 10;" text="Stop Altitude" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="startOrientationButton" mnemonicParsing="false" onAction="#orientationStart" prefHeight="209.0" prefWidth="418.0" style="-fx-border-color: BLACK; -fx-background-radius: 10;" text="Start Orientation" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="stopOrientationButton" mnemonicParsing="false" onAction="#orientationStop" prefHeight="251.0" prefWidth="418.0" style="border: BLACK; -fx-background-radius: 10;" text="Stop Orientation" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="startPressureButton" mnemonicParsing="false" onAction="#pressureStart" prefHeight="229.0" prefWidth="418.0" style="-fx-border-color: BLACK; -fx-background-radius: 10;" text="Start Pressure" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="stopPressurerButton" mnemonicParsing="false" onAction="#pressureStop" prefHeight="253.0" prefWidth="418.0" style="-fx-border-color: BLACK; -fx-background-radius: 10;" text="Stop Pressure" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="startGraphButton" mnemonicParsing="false" onAction="#graphStart" prefHeight="278.0" prefWidth="418.0" style="-fx-border-color: BLACK; -fx-background-radius: 10;" text="Start Graph" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="stopGraphButton" mnemonicParsing="false" onAction="#graphStop" prefHeight="281.0" prefWidth="418.0" style="-fx-background-radius: 10;" text="Stop Graph" GridPane.rowIndex="7">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </GridPane>
+                        <GridPane layoutX="419.0" prefHeight="383.0" prefWidth="416.0" style="-fx-background-color: BLACK;">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.0" minWidth="10.0" prefWidth="164.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="135.0" minWidth="10.0" prefWidth="116.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label fx:id="altDataStatus" alignment="CENTER" prefHeight="50.0" prefWidth="166.0" style="-fx-background-color: RED; -fx-background-radius: 10;" text="Alitude Data Status" textAlignment="CENTER" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="orientationLabel" alignment="CENTER" prefHeight="50.0" prefWidth="166.0" style="-fx-background-color: RED; -fx-background-radius: 10;" text=" Orientation Data Status" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="pressureLabel" alignment="CENTER" prefHeight="50.0" prefWidth="166.0" style="-fx-background-color: RED; -fx-background-radius: 10;" text="Pressure Data Status" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="graphLabel" alignment="CENTER" prefHeight="50.0" prefWidth="166.0" style="-fx-background-color: RED; -fx-background-radius: 10;" text="Graph Data Status" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+               <font>
+                  <Font name="Cooper Black" size="14.0" />
+               </font>
+            </TitledPane>
+            <TitledPane alignment="CENTER" animated="false" prefHeight="657.0" prefWidth="837.0" text="Ground Station Systems" GridPane.rowIndex="1">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: BLACK;">
+                     <children>
+                        <GridPane layoutX="-2.0" layoutY="-3.0" prefHeight="388.0" prefWidth="417.0" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="-10.0" AnchorPane.topAnchor="-10.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button fx:id="fillValveOpen" mnemonicParsing="false" onAction="#openFillValve" prefHeight="287.0" prefWidth="417.0" style="-fx-border-color: BLACK; -fx-background-radius: 10;" text="Fill Valve Open">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="fillValveClosed" mnemonicParsing="false" onAction="#closeFillValve" prefHeight="363.0" prefWidth="417.0" style="-fx-border-color: BLACK; -fx-background-radius: 10;" text="Fill Valve Closed" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#openPurgeValve" prefHeight="401.0" prefWidth="417.0" style="-fx-border-color: BLACK; -fx-background-radius: 10;" text="Purge Valve Open" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#closePurgeValve" prefHeight="314.0" prefWidth="417.0" style="-fx-border-color: BLACK; -fx-background-radius: 10;" text="Purge Valve Closed" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </GridPane>
+                        <GridPane layoutX="418.0" prefHeight="384.0" prefWidth="418.0" style="-fx-background-color: BLACK;">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="135.0" minWidth="10.0" prefWidth="94.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.0" minWidth="10.0" prefWidth="185.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label fx:id="fillValveLabel" alignment="CENTER" prefHeight="50.0" prefWidth="185.0" style="-fx-background-color: RED; -fx-background-radius: 10;" text="Fill Valve Status" textAlignment="CENTER" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="purgeValveLabel" alignment="CENTER" prefHeight="50.0" prefWidth="185.0" style="-fx-background-color: RED; -fx-background-radius: 10;" text="Purge Valve Status" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+               <font>
+                  <Font name="Cooper Black" size="14.0" />
+               </font>
+            </TitledPane>
+            <TitledPane alignment="CENTER" animated="false" prefHeight="493.0" prefWidth="837.0" text="Launch Systems" GridPane.columnIndex="1">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: BLACK;">
+                     <children>
+                        <GridPane prefHeight="90.0" AnchorPane.leftAnchor="-10.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="-10.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#armRocket" prefHeight="90.0" prefWidth="1143.0" style="-fx-background-radius: 10;" text="ARM">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#launchRocket" prefHeight="90.0" prefWidth="710.0" style="-fx-background-radius: 10;" text="Launch" GridPane.columnIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#abortLaunch" prefHeight="90.0" prefWidth="1039.0" style="-fx-background-radius: 10;" text="Abort Launch" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </GridPane>
+                        <Pane layoutX="34.2" layoutY="132.0" prefHeight="269.0" prefWidth="789.0" style="-fx-background-color: GREY;" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="-10.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="100.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+               <font>
+                  <Font name="Cooper Black" size="14.0" />
+               </font>
+            </TitledPane>
+            <TitledPane alignment="CENTER" animated="false" prefHeight="637.0" prefWidth="837.0" text="Launch Pad View" GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: BLACK;">
+                     <children>
+                        <GridPane layoutX="-1.0" prefHeight="384.0" prefWidth="418.0" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="-10.0" AnchorPane.topAnchor="-10.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#camera1On" prefHeight="424.0" prefWidth="418.0" style="-fx-background-radius: 10;" text="Enable Camera 1">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#camera1Off" prefHeight="363.0" prefWidth="418.0" style="-fx-background-radius: 10;" text="Disable Camera 1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#camera2On" prefHeight="417.0" prefWidth="418.0" style="-fx-background-radius: 10;" text="Enable Camera 2" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#camera2Off" prefHeight="541.0" prefWidth="418.0" style="-fx-background-radius: 10;" text="Disable Camera 2" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </GridPane>
+                        <GridPane layoutX="419.0" layoutY="-1.0" prefHeight="386.0" prefWidth="421.0" style="-fx-background-color: BLACK;" AnchorPane.bottomAnchor="-10.0" AnchorPane.rightAnchor="-10.0">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label fx:id="camera1Label" alignment="CENTER" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: RED; -fx-background-radius: 10;" text="Camera 1" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="camera2Label" alignment="CENTER" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: RED; -fx-background-radius: 10;" text="Camera 2" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+               <font>
+                  <Font name="Cooper Black" size="14.0" />
+               </font>
+            </TitledPane>
+         </children>
+      </GridPane>
+      <Label alignment="CENTER" layoutX="348.0" layoutY="8.0" prefHeight="29.0" prefWidth="278.0" text="Systems Control Panel" textFill="#f2cd16" AnchorPane.leftAnchor="348.0" AnchorPane.rightAnchor="348.0" AnchorPane.topAnchor="6.0">
+         <font>
+            <Font name="Cooper Black" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="60.0" text="GSE IP : " textFill="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="Cooper Black" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="5.0" layoutY="27.0" text="RF IP :" textFill="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="37.0">
+         <font>
+            <Font name="Cooper Black" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="gseIPField" layoutX="79.0" layoutY="2.0" AnchorPane.topAnchor="3.0" />
+      <TextField fx:id="rfIPField" layoutX="79.0" layoutY="31.0" AnchorPane.topAnchor="32.0" />
+      <Button fx:id="ipEnterButton" layoutX="266.0" layoutY="10.0" mnemonicParsing="false" onAction="#getIPFields" prefHeight="25.0" prefWidth="149.0" text="Enter" AnchorPane.topAnchor="3.0">
+         <font>
+            <Font name="Cooper Black" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="ipCLearBUtton" layoutX="266.0" layoutY="41.0" mnemonicParsing="false" onAction="#clearIPFields" prefHeight="25.0" prefWidth="149.0" text="Clear" AnchorPane.topAnchor="32.0">
+         <font>
+            <Font name="Cooper Black" size="12.0" />
+         </font>
+      </Button>
+      <Label fx:id="ipErrorLabel" alignment="CENTER" layoutX="1244.0" layoutY="24.0" prefHeight="17.0" prefWidth="269.0" AnchorPane.rightAnchor="161.0" AnchorPane.topAnchor="24.0">
+         <font>
+            <Font name="Cooper Black" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
