@@ -15,12 +15,16 @@ def actuatorOpen(segment,s):
 	global actuatorB
 	
 	if segment == 'A':
-		actuatorA = True
 		s.send('ao'.encode())
+		print('Opening Actuator A')
+		time.sleep(10)
+		actuatorA = True
 
 	else:
-		actuatorB = True
 		s.send('bo'.encode())
+		print('Opening Actuator B')
+		time.sleep(10)
+		actuatorB = True
 
 def actuatorClose(segment,s):
 
@@ -28,11 +32,15 @@ def actuatorClose(segment,s):
 	global actuatorB
 	
 	if segment == 'A':
+		s.send('ac'.encode())
+		print('Closing Actuator A')
+		time.sleep(10)
 		actuatorA = False
-		s.send('ac'.encode())
 	else: 	
+		s.send('bc'.encode())
+		print('Closing Actuator B')
+		time.sleep(10)
 		actuatorB = False
-		s.send('ac'.encode())
 
 def loadCellDataTransfer(socketClass):
 	print('load cell')
@@ -82,6 +90,8 @@ def main():
 
 	while(True):
 
+		clearScreen()
+
 		print("\n\n\t\tIREC2020 Cold Flow Test\n")
 		print("Please pick an option, from the list below:\n")
 		print("1.) Open Actuator A\n")
@@ -96,9 +106,6 @@ def main():
 		print(('Load Cell Data: Online','Load Cell Data: Offline')[loadCellData is False]+'\n')
 
 		userInput = input("Selection: ")
-
-		clearScreen()
-
 		userInputSelection(int(userInput),s)
 
 if __name__ == "__main__":
