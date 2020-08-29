@@ -1,0 +1,11 @@
+Part #,Mfr. Part #,Part Name,Description,Qty,Unit Cost,URL,Cost
+1528-1426-ND,2472,IMU,BREAKOUT BOARD 9-DOF IMU BNO055,1,$34.95,https://www.digikey.com/products/en?mpart=2472&v=1528,$34.95
+1528-1359-ND,2652,Altimeter,SENSOR HUM/PRESS I2C/SPI BME280,1,$19.95,https://www.digikey.com/products/en?mpart=2652&v=1528,$19.95
+609-2237-ND,66951-007LF,Header,CONN RCPT 7POS 0.1 GOLD PCB,1,$2.02,https://www.digikey.com/product-detail/en/amphenol-icc-fci/66951-007LF/609-2237-ND/1002552,$2.02
+609-2236-ND,66951-006LF,Header,CONN RCPT 6POS 0.1 GOLD PCB,1,$2.30,https://www.digikey.com/product-detail/en/amphenol-icc-fci/66951-006LF/609-2236-ND/1002551,$2.30
+609-2234-ND,66951-004LF,Header,CONN RCPT 4POS 0.1 GOLD PCB,1,$1.93,https://www.digikey.com/product-detail/en/amphenol-icc-fci/66951-004LF/609-2234-ND/1002549,$1.93
+A98161-ND,284391-4,Signal Terminal Block,TERM BLK 4POS SIDE ENT 3.5MM PCB,1,$1.91,https://www.digikey.com/product-detail/en/te-connectivity-amp-connectors/284391-4/A98161-ND/1827023,$1.91
+A98159-ND,284391-2,Relay Terminal Blocks,TERM BLK 2POS SIDE ENT 3.5MM PCB,2,$1.12,https://www.digikey.com/product-detail/en/te-connectivity-amp-connectors/284391-2/A98159-ND/1827021,$2.24
+255-2816-ND,JTN1AS-PA-F-DC5V,Relay,RELAY GEN PURPOSE SPST 30A 5V,1,$3.94,https://www.digikey.com/product-detail/en/panasonic-electric-works/JTN1AS-PA-F-DC5V/255-2816-ND/648654,$3.94
+1N4148FSCT-ND,1N4148TR,Diode,DIODE GEN PURP 100V 200MA DO35,1,$0.10,https://www.digikey.com/product-detail/en/on-semiconductor/1N4148TR/1N4148FSCT-ND/9356376,$0.10
+,,,,,,Total Cost,$69.34
