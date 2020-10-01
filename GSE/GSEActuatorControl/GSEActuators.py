@@ -2,8 +2,6 @@ import socket
 import RPi.GPIO as GPIO
 import time
 
-#parser to input port
-
 def openActuator():
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(17,GPIO.OUT)
@@ -13,9 +11,6 @@ def openActuator():
 	time.sleep(1)
 	GPIO.cleanup()
 
-
-
-
 def closeActuator():
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(27,GPIO.OUT)
@@ -24,7 +19,6 @@ def closeActuator():
 	GPIO.output(27,GPIO.HIGH)
 	time.sleep(1)
 	GPIO.cleanup()	
-
 
 def openActuatorB():
 	GPIO.setmode(GPIO.BCM)
@@ -44,7 +38,12 @@ def closeActuatorB():
 	time.sleep(1)
 	GPIO.cleanup()
 
-
+def ignitionSequence():
+	GPIO.setmode(GPIO.BCM)
+	GPIO.setup(25,GPIO.OUT)
+	GPIO.output(25,GPIO.HIGH)
+	time.sleep(5)
+	GPIO.cleanup()
 
 def openSocket():
 	s = socket.socket()
@@ -57,9 +56,9 @@ def openSocket():
 
 	c,addr = s.accept()
 
-	print("Up and running")
+	print("Connection to Launch Station")
 
-	GPIO.cleanup()
+	#GPIO.cleanup()
 
 	while True:
 
@@ -74,6 +73,8 @@ def openSocket():
 			openActuatorB()
 		elif r == 'bc':
 			closeActuatorB()
+		elif t == 'ig':
+			ignitionSequence()
 
 	c.close()
 

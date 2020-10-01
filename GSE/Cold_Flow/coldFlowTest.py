@@ -2,12 +2,9 @@ import os
 import socket
 import time
 
-#parser to input port
-
 actuatorA = False
 actuatorB  = False
 loadCellData = False
-
 
 def actuatorOpen(segment,s):
 
@@ -36,6 +33,7 @@ def actuatorClose(segment,s):
 		print('Closing Actuator A')
 		time.sleep(10)
 		actuatorA = False
+
 	else: 	
 		s.send('bc'.encode())
 		print('Closing Actuator B')
@@ -43,9 +41,22 @@ def actuatorClose(segment,s):
 		actuatorB = False
 
 def loadCellDataTransfer(socketClass):
+
 	print('load cell')
 
+def ignition():
+
+	s.send('ig'.encode())
+	t = 0
+
+	while(t < 10)
+		print('Ignition in'+str(10-t))
+		t += 1
+		time.sleep(1)
+		clearScreen()
+
 def exitProgram(socketClass):
+
 	print('Ad Astra')
 	socketClass.killSocket()
 	exit()
@@ -55,14 +66,13 @@ def userInputSelection(selection,socketClass):
 	if 0 < selection < 7:
 
 		options ={
-
 			1 : actuatorOpen,
 	        2 : actuatorClose,
 	        3 : actuatorOpen,
 	        4 : actuatorClose,
 	        5 : loadCellDataTransfer,
-	        6.: exitProgram
-	    
+	        6 : ignition,
+	        7.: exitProgram
 		}
 
 		if int(selection) in {1,2}:
@@ -78,6 +88,10 @@ def userInputSelection(selection,socketClass):
 			loadCellDataTransfer(socketClass)
 
 		elif int(selection) is 6:
+			clearScreen()
+			ignition()
+
+		elif int(selection) is 7:
 			exitProgram(socketClass)
 
 def clearScreen():
@@ -86,7 +100,7 @@ def clearScreen():
 def main():
 
 	s = socket.socket()
-	s.connect(('raspberrypi',8893))
+	s.connect(('pi',8893))
 
 	while(True):
 
@@ -99,7 +113,8 @@ def main():
 		print("3.) Open Actuator B\n")
 		print("4.) Close Actuator B\n")
 		print("5.) Load Cell Data Acquistion\n")
-		print("6.) Exit Program")
+		print("6.) Ignition")
+		print("7.) Exit Program")
 		print("\n\n\t\tCurrent Status\n")
 		print(('Actuator A: Open','Actuator A: Closed')[actuatorA is False]+'\n')
 		print(('Actuator B: Open','Actuator B: Closed')[actuatorB is False]+'\n')
