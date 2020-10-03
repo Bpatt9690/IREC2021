@@ -1,6 +1,7 @@
 import socket
 import RPi.GPIO as GPIO
 import time
+import subprocess
 
 def openActuator():
 	GPIO.setmode(GPIO.BCM)
@@ -45,6 +46,15 @@ def ignitionSequence():
 	time.sleep(5)
 	GPIO.cleanup()
 
+def loadCellData():
+	"""
+	Simply needs to run loadcell.py
+	Possible kill and restart implementation later
+	"""
+
+	exec(open("loadCell.py").read())
+
+
 def openSocket():
 	s = socket.socket()
 
@@ -57,8 +67,6 @@ def openSocket():
 	c,addr = s.accept()
 
 	print("Connection to Launch Station")
-
-	#GPIO.cleanup()
 
 	while True:
 
@@ -73,8 +81,10 @@ def openSocket():
 			openActuatorB()
 		elif r == 'bc':
 			closeActuatorB()
-		elif t == 'ig':
+		elif r == 'ig':
 			ignitionSequence()
+		elif r == 'lc':
+			loadCellData()
 
 	c.close()
 

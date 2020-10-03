@@ -1,10 +1,12 @@
 import os
 import socket
 import time
+import _thread
 
 actuatorA = False
 actuatorB  = False
 loadCellData = False
+loadCellValues = 0
 
 def actuatorOpen(segment,s):
 
@@ -40,23 +42,49 @@ def actuatorClose(segment,s):
 		time.sleep(10)
 		actuatorB = False
 
-def loadCellDataTransfer(socketClass):
+def loadCellData(s):
 
-	print('load cell')
+	global loadCellData
 
-def ignition():
+	s.send('lc'.encode())
 
-	s.send('ig'.encode())
+	if loadCellData is False:
+		loadCellData is True
+
+	elif loadCellData is True:
+		loadCellData is False
+
+	try:
+		_thread.start_new_thread( loadCellAcquisition,"Load Cell Thread")
+
+	except:
+		print('Error creating loadCell thread')
+
+
+def loadCellAcquisition():
+
+	global loadCellValues
+
+	s = socket.socket()
+	s.connect(('raspberrypi',8893))
+
+	while True:	
+		loadCellValues = c.recv(1024).decode()
+		time.sleep(.5)
+
+def ignition(s):
+
 	t = 0
 
-	while(t < 10)
-		print('Ignition in'+str(10-t))
+	while(t < 10):
+		print('Ignition in '+str(10-t))
 		t += 1
 		time.sleep(1)
 		clearScreen()
+	s.send('ig'.encode())
+
 
 def exitProgram(socketClass):
-
 	print('Ad Astra')
 	socketClass.killSocket()
 	exit()
@@ -70,7 +98,7 @@ def userInputSelection(selection,socketClass):
 	        2 : actuatorClose,
 	        3 : actuatorOpen,
 	        4 : actuatorClose,
-	        5 : loadCellDataTransfer,
+	        5 : loadCellData,
 	        6 : ignition,
 	        7.: exitProgram
 		}
@@ -85,11 +113,11 @@ def userInputSelection(selection,socketClass):
 
 		elif int(selection) is 5:
 			clearScreen()
-			loadCellDataTransfer(socketClass)
+			loadCellData(socketClass)
 
 		elif int(selection) is 6:
 			clearScreen()
-			ignition()
+			ignition(socketClass)
 
 		elif int(selection) is 7:
 			exitProgram(socketClass)
@@ -100,12 +128,11 @@ def clearScreen():
 def main():
 
 	s = socket.socket()
-	s.connect(('pi',8893))
+	s.connect(('raspberrypi',8893))
 
 	while(True):
 
 		clearScreen()
-
 		print("\n\n\t\tIREC2020 Cold Flow Test\n")
 		print("Please pick an option, from the list below:\n")
 		print("1.) Open Actuator A\n")
@@ -113,13 +140,13 @@ def main():
 		print("3.) Open Actuator B\n")
 		print("4.) Close Actuator B\n")
 		print("5.) Load Cell Data Acquistion\n")
-		print("6.) Ignition")
+		print("6.) Ignition\n")
 		print("7.) Exit Program")
 		print("\n\n\t\tCurrent Status\n")
 		print(('Actuator A: Open','Actuator A: Closed')[actuatorA is False]+'\n')
 		print(('Actuator B: Open','Actuator B: Closed')[actuatorB is False]+'\n')
 		print(('Load Cell Data: Online','Load Cell Data: Offline')[loadCellData is False]+'\n')
-
+		print('Load Cell Values:', str(loadCellValues)+'\n')
 		userInput = input("Selection: ")
 		userInputSelection(int(userInput),s)
 
