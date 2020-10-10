@@ -16,13 +16,13 @@ def actuatorOpen(segment,s):
 	if segment == 'A':
 		s.send('ao'.encode())
 		print('Opening Actuator A')
-		time.sleep(10)
+		time.sleep(15)
 		actuatorA = True
 
 	else:
 		s.send('bo'.encode())
 		print('Opening Actuator B')
-		time.sleep(10)
+		time.sleep(15)
 		actuatorB = True
 
 def actuatorClose(segment,s):
@@ -33,13 +33,13 @@ def actuatorClose(segment,s):
 	if segment == 'A':
 		s.send('ac'.encode())
 		print('Closing Actuator A')
-		time.sleep(10)
+		time.sleep(15)
 		actuatorA = False
 
 	else: 	
 		s.send('bc'.encode())
 		print('Closing Actuator B')
-		time.sleep(10)
+		time.sleep(15)
 		actuatorB = False
 
 def loadCellData(s):
@@ -55,7 +55,7 @@ def loadCellData(s):
 		loadCellData is False
 
 	try:
-		_thread.start_new_thread( loadCellAcquisition,"Load Cell Thread")
+		_thread.start_new_thread(loadCellAcquisition)
 
 	except:
 		print('Error creating loadCell thread')
@@ -67,9 +67,11 @@ def loadCellAcquisition():
 
 	s = socket.socket()
 	s.connect(('raspberrypi',8893))
+	clearScreen()
 
 	while True:	
 		loadCellValues = c.recv(1024).decode()
+		print(loadCellValues)
 		time.sleep(.5)
 
 def ignition(s):
