@@ -32,10 +32,10 @@ def openActuatorB():
 
 def closeActuatorB():
 	GPIO.setmode(GPIO.BCM)
-	GPIO.setup(23,GPIO.OUT)
-	GPIO.output(23,GPIO.LOW)
+	GPIO.setup(24,GPIO.OUT)
+	GPIO.output(24,GPIO.LOW)
 	time.sleep(10)
-	GPIO.output(23,GPIO.HIGH)
+	GPIO.output(24,GPIO.HIGH)
 	time.sleep(1)
 	GPIO.cleanup()
 
