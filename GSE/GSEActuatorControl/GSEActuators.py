@@ -103,7 +103,6 @@ def openSocket():
 
 	c.close()
 
-
 def main():
 	openSocket()
 
