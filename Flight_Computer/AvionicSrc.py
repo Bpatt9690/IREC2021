@@ -14,6 +14,12 @@ import threading
 from digitalio import DigitalInOut, Direction, Pull
 
 DataQueue = queue.Queue()
+PacketCount = 0
+
+BackupFile = "/home/pi/BackUpData.txt"
+BackupDataFile = ""
+ErrorFile = "/home/pi/ErrorLog.txt"
+ErrorDataFile = ""
 
 try:
     i2c = busio.I2C(board.SCL, board.SDA)
@@ -27,25 +33,65 @@ try:
     print('RFM9x: Detected') # Inform UI
 
 except RuntimeError as error:
+
     print('Sensor error: '+error) #Inform UI
+    ErrorLog(error)
+    CloseFiles()
 
 
 def OpenAmplifier():
-
+    #Needs to be threaded
+    print('Open amp')
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(4,GPIO.OUT)
     GPIO.output(4,GPIO.HIGH)
-    time.sleep(10) # used for testing w
-    GPIO.output(4,GPIO.LOW)
 
 def CloseAmplifier():
-    #GPIO to close circuit
+
     print('Close Amplifier')
+    GPIO.output(4, GPIO.LOW)
+
+def OpenFiles():
+
+    global BackupDataFile
+    global ErrorDataFile
+
+    ErrorDataFile = open(ErrorFile,"a")
+    BackupDataFile = open(BackupFile,"a")
+
+def CloseFiles():
+
+    global BackupDataFile
+    global ErrorDataFile
+
+    ErrorDataFile.close()
+    BackupDataFile.close()
+
+
+def DataLog(data):
+
+    global BackupDataFile
+
+    BackupDataFile.write(data)
+
+
+
+def ErrorLog(error):
+
+    global ErrorDataFile
+
+    ErrorDataFile.write(error)
     
 
 def DataTransmission():
 
         global DataQueue
+        global PacketCount
+        global BackupDataFile
+
+        PacketCount+=1
+
+        print(PacketCount)
 
         if DataQueue.empty() is True:
             return
@@ -53,11 +99,16 @@ def DataTransmission():
         if DataQueue.empty() is False:
 
             try:
+
                 data = bytes(DataQueue.get(0),"utf-8")
                 rfm9x.send(data)
+                BackupDataFile.write(data)
 
             except RuntimeError as error:
+
                 print('RFM9x error:'+ error)
+                ErrorLog(error)
+                CloseFiles()
 
 
 class DataAcquisition(threading.Thread):
@@ -71,15 +122,11 @@ class DataAcquisition(threading.Thread):
         self.bmpSensor = bmpSensor
         self.FormattedData = str()
     
-
     def run(self):
-
         print('Starting '+self.name)
 
         def DataFiltering():
-
             print('in data filtering')
-            #Implement a Low Pass Filter and remove uneeded decimals and values
 
         def TupleFormatting(data):
 
@@ -92,10 +139,12 @@ class DataAcquisition(threading.Thread):
                 return Data
 
         def IntegerFormatting(data):
+
             Data = str('{0:.1f}'.format(data))
             return Data
 
         def FloatFormatting(data):
+
             Data = str('{0:.1f}'.format(data))
             return Data
 
@@ -124,44 +173,54 @@ class DataAcquisition(threading.Thread):
 
                     elif isinstance(sensor,float):
                         FormattedData += FloatFormatting(sensor)+"|"
-                      
-              
+                            
                 self.DataQueue.put(FormattedData)
-                print(list(self.DataQueue.queue));
-              
-
-
+                
             except RuntimeError as error:
                 print(error)
-
+            
             time.sleep(.1)
 
 def ShutDown():
 
     try:
+
         GPIO.cleanup()
         os._exit(0)
 
     except SystemExit:
-        os._exit(0)
-        
 
+        CloseFiles()
+        os._exit(0)
+
+    
 def main():
 
     global orientationSensor
     global bmpSensor
     global DataQueue
+    global BackupDataFile
+    global BackupFile
+    global ErrorFile
+    global ErrorDataFile
+
+    OpenFiles()
 
     try:
+
         thread = DataAcquisition('DataAcquisition Thread','Data',DataQueue,orientationSensor,bmpSensor)
         thread.start()
 
     except RuntimeError as error:
+
         print(error)
+        ErrorLog(error)
+        CloseFiles()
 
     while 1:
+
         DataTransmission()
-        time.sleep(.5)
+        time.sleep(1)
 
 if __name__ == "__main__":
 
@@ -169,7 +228,10 @@ if __name__ == "__main__":
         main()
 
     except KeyboardInterrupt:
-        print("Keyboard Interrupted")
+
+        print("Keyboard Interruption")
+        ErrorLog(error)
+        CloseFiles()
         ShutDown()
         
 
