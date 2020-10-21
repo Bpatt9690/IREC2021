@@ -19,21 +19,11 @@
                   <Font name="Cooper Black" size="13.0" />
                </font>
             </Button>
-            <ImageView fitHeight="176.0" fitWidth="163.0" layoutX="6.0" layoutY="6.0">
+            <ImageView fitHeight="53.0" fitWidth="214.0" layoutX="29.0" layoutY="143.0">
                <image>
-                  <Image url="@../../../Desktop/download.png" />
+                  <Image url="@../src/aiaa.png" />
                </image>
-            </ImageView>
-            <ImageView fitHeight="176.0" fitWidth="163.0" layoutX="679.0" layoutY="6.0">
-               <image>
-                  <Image url="@../../../Desktop/download.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="200.0" layoutX="635.0" layoutY="188.0">
-               <image>
-                  <Image url="@../../../Desktop/aiaa.png" />
-               </image>
-            </ImageView>
+            </ImageView>   
             <Label layoutX="187.0" layoutY="60.0" prefHeight="53.0" prefWidth="496.0" text="Telemetry Ground Station " textFill="#f2cd16">
                <font>
                   <Font name="Cooper Black" size="36.0" />
@@ -51,6 +41,16 @@
             </Label>
             <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="274.0" layoutY="253.0" prefHeight="25.0" prefWidth="312.0" />
             <TextField fx:id="userName" alignment="CENTER" layoutX="274.0" layoutY="157.0" prefHeight="25.0" prefWidth="312.0" />
+            <ImageView fitHeight="199.0" fitWidth="200.0" layoutX="50.0" layoutY="223.0">
+               <image>
+                  <Image url="@../src/Chungus.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="657.0" layoutY="241.0">
+               <image>
+                  <Image url="@../src/Seds.jpg" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>

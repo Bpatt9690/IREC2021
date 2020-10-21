@@ -55,7 +55,7 @@
          <children>
             <ImageView fitHeight="252.0" fitWidth="844.0" layoutX="450.0" layoutY="302.0" rotate="90.0">
                <image>
-                  <Image url="@../../../Desktop/bigchung.png" />
+                  <Image url="@../src/bigchung.png" />
                </image>
             </ImageView>
             <Rectangle fx:id="nitrogenTank" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="179.0" layoutX="42.0" layoutY="695.0" stroke="BLACK" strokeType="INSIDE" width="85.0" />
