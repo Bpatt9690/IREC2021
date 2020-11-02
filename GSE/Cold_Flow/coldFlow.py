@@ -150,7 +150,11 @@ def main():
 		print(('Load Cell Data: Online','Load Cell Data: Offline')[loadCellData is False]+'\n')
 		print('Load Cell Values:', str(loadCellValues)+'\n')
 		userInput = input("Selection: ")
-		userInputSelection(int(userInput),s)
+
+		if userInput.isdigit():
+			userInputSelection(int(userInput),s)
+		else:
+			print("Please enter correct digit")
 
 if __name__ == "__main__":
 	main()
