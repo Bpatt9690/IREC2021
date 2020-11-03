@@ -78,8 +78,8 @@ def ignition(s):
 
 	t = 0
 
-	while(t < 10):
-		print('Ignition in '+str(10-t))
+	while(t < 5):
+		print('Ignition in '+str(5-t))
 		t += 1
 		time.sleep(1)
 		clearScreen()
