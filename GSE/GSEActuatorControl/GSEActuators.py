@@ -44,8 +44,11 @@ def closeActuatorB():
 def ignitionSequence():
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(25,GPIO.OUT)
+	GPIO.setup(16,GPIO.OUT)
 	GPIO.output(25,GPIO.HIGH)
-	time.sleep(1)
+	time.sleep(.5)
+	GPIO.output(16,GPIO.HIGH)
+	time.sleep(1) 
 	GPIO.cleanup()
 
 def loadCellThread():
