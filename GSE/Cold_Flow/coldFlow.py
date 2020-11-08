@@ -83,7 +83,9 @@ def ignition(s):
 		t += 1
 		time.sleep(1)
 		clearScreen()
+	print('ignition')
 	s.send('ig'.encode())
+	time.sleep(4)
 
 
 def exitProgram(socketClass):
