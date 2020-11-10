@@ -156,7 +156,8 @@ def main():
 		if userInput.isdigit():
 			userInputSelection(int(userInput),s)
 		else:
-			print("Please enter correct digit")
+			print("Please enter A Valid Selection")
+			time.sleep(2)
 
 if __name__ == "__main__":
 	main()

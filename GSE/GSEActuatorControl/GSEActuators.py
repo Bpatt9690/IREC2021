@@ -6,6 +6,7 @@ import _thread
 import serial
 
 def openActuator():
+
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(17,GPIO.OUT)
 	GPIO.output(17,GPIO.LOW)
@@ -24,6 +25,7 @@ def closeActuator():
 	GPIO.cleanup()	
 
 def openActuatorB():
+
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(22,GPIO.OUT)
 	GPIO.output(22,GPIO.LOW)
@@ -33,6 +35,7 @@ def openActuatorB():
 	GPIO.cleanup()
 
 def closeActuatorB():
+
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(24,GPIO.OUT)
 	GPIO.output(24,GPIO.LOW)
@@ -42,6 +45,7 @@ def closeActuatorB():
 	GPIO.cleanup()
 
 def ignitionSequence():
+
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(25,GPIO.OUT)
 	GPIO.setup(16,GPIO.OUT)
@@ -53,12 +57,14 @@ def ignitionSequence():
 	GPIO.cleanup()
 
 def loadCellThread():
+
 	try:
 		_thread.start_new_thread( loadCellData, ("Thread-1",))
 	except Exception as e:
 		print(e)
 
 def loadCellData(s):
+
 	ser = serial.Serial('/dev/ttyACM0',9600,timeout=1)
 	ser.flush()
 	s = socket.socket()
@@ -75,6 +81,7 @@ def loadCellData(s):
 	
 	
 def openSocket():
+
 	s = socket.socket()
 
 	port = 8893
@@ -87,28 +94,52 @@ def openSocket():
 
 	print("Connection to Launch Station")
 
-	while True:
+	try:
 
-		r = c.recv(1024).decode()
-		print("S:",r)
-		
-		if r == 'ao':
-			openActuator()
-		elif r == 'ac':
-			closeActuator()
-		elif r == 'bo':
-			openActuatorB()
-		elif r == 'bc':
-			closeActuatorB()
-		elif r == 'ig':
-			ignitionSequence()
-		elif r == 'lc':
-			loadCellThread()
+		while True:
 
-	c.close()
+			r = c.recv(1024).decode()
+			print("S:",r)
+			
+			if r == 'ao':
+				openActuator()
+			elif r == 'ac':
+				closeActuator()
+			elif r == 'bo':
+				openActuatorB()
+			elif r == 'bc':
+				closeActuatorB()
+			elif r == 'ig':
+				ignitionSequence()
+			elif r == 'lc':
+				loadCellThread()
+
+	except KeyboardInterrupt:
+		print('Keyboard Intiated ShutDown')
+		s.shutdown(SHUT_RDWR)
+		s.close()
+		c.close()
+
+
+def ShutDown():
+
+	try:
+		sys.exit(0)
+
+	except SystemExit:
+		os._exit(0)
+
+
 
 def main():
-	openSocket()
+
+	try:
+		openSocket()
+
+	except KeyboardInterrupt:
+		print('Keyboard Intiated ShutDown')
+		ShutDown()
+
 
 if __name__ == "__main__":
 	main()
