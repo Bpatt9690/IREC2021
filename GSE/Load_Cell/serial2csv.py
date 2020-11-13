@@ -10,7 +10,7 @@ ser.flushInput()
 
 with open('ColdFlowTest5.csv', mode="w") as csv_file:
     csv_writer = csv.writer(csv_file, delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    csv_writer.writerow("[ColdFlowTest5]")
+    # csv_writer.writerow("[ColdFlowTest5]")
     while True:
         data_raw = ser.readline()
 
