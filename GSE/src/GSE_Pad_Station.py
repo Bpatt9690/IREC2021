@@ -48,20 +48,20 @@ def ignitionSequence():
 
 	GPIO.setmode(GPIO.BCM)
 
-	GPIO.setup(25,GPIO.OUT)
-	GPIO.setup(16,GPIO.OUT)
-	GPIO.setup(27,GPIO.OUT)
+	GPIO.setup(25,GPIO.OUT) #Igniters
+	GPIO.setup(16,GPIO.OUT)	#Nichrome Wire
+	GPIO.setup(27,GPIO.OUT) #Actuator A
 
-	GPIO.output(27,GPIO.LOW) # Closes Actuator A for 3 seconds
+	GPIO.output(27,GPIO.LOW)  #Closes Actuator A t = 0
 	time.sleep(3)
-	GPIO.output(16,GPIO.HIGH) # Sends Continous charge to Nichrome wire 
+	GPIO.output(16,GPIO.HIGH) #Sends charge to Nichrome time elapsed: 3/s
 	time.sleep(2)
-	GPIO.output(25,GPIO.HIGH) # Sends 3 seconds charge to igniters
+	GPIO.output(25,GPIO.HIGH) #Sends charge to Igniters time elapsed: 5/s
 	time.sleep(3)
-	GPIO.output(25,GPIO.LOW) # Shuts off igniters# Shuts down actuator A
-	time.sleep(10) 	
-	GPIO.output(16,GPIO.LOW)
-	GPIO.output(27,GPIO.HIGH)
+	GPIO.output(25,GPIO.LOW) #Shutsdown Igniters and t+3/s relative to Igniters
+	time.sleep(7) 	
+	GPIO.output(16,GPIO.LOW) #Shutsdown Nichrome wire after t+15/s relative to Nichrome
+	GPIO.output(27,GPIO.HIGH) #Shutsdown Actuator A
 
 
 	GPIO.cleanup()
