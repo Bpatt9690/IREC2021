@@ -47,13 +47,23 @@ def closeActuatorB():
 def ignitionSequence():
 
 	GPIO.setmode(GPIO.BCM)
+
 	GPIO.setup(25,GPIO.OUT)
 	GPIO.setup(16,GPIO.OUT)
-	GPIO.output(16,GPIO.HIGH)
+	GPIO.setup(27,GPIO.OUT)
+
+	GPIO.output(27,GPIO.LOW) # Closes Actuator A for 3 seconds
+	time.sleep(3)
+	GPIO.output(16,GPIO.HIGH) # Sends Continous charge to Nichrome wire 
 	time.sleep(2)
-	#time.sleep(.5)
-	#GPIO.output(25,GPIO.HIGH)
-	#time.sleep(4) 
+	GPIO.output(25,GPIO.HIGH) # Sends 3 seconds charge to igniters
+	time.sleep(3)
+	GPIO.output(25,GPIO.LOW) # Shuts off igniters# Shuts down actuator A
+	time.sleep(10) 	
+	GPIO.output(16,GPIO.LOW)
+	GPIO.output(27,GPIO.HIGH)
+
+
 	GPIO.cleanup()
 
 def loadCellThread():
