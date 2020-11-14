@@ -80,11 +80,16 @@ def ignition(s):
 
 	while(t < 5):
 		print('Ignition in '+str(5-t))
+
+		if t == 0:
+			s.send('ig'.encode())
+
 		t += 1
 		time.sleep(1)
 		clearScreen()
-	print('ignition')
-	s.send('ig'.encode())
+
+	#print('ignition sequence started')
+	#s.send('ig'.encode())
 	time.sleep(20)
 
 
