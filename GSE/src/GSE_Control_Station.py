@@ -78,8 +78,8 @@ def ignition(s):
 
 	t = 0
 
-	while(t < 5):
-		print('Ignition in '+str(5-t))
+	while(t < 10):
+		print('Ignition in '+str(10-t))
 
 		if t == 0:
 			s.send('ig'.encode())

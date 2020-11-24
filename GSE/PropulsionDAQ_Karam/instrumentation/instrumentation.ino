@@ -34,17 +34,18 @@ float measurement_pounds;
 float measurement_newtons;
 HX711 scale;
 
-// File output;
-
-const int pressureInput = A0; // analog  pin for  pressure transducer
-const int temperatureInput = A1; // analog pin for temperature sensor
+const int pressureInput = A0; // analog  pin for the first pressure transducer
+const int temperatureInput1 = A1; // analog pin for temperature sensor
+const int temperatureInput2 = A2; // analog  pin for the second pressure transducer
 const int pressureZero = 102; //analog reading of pressure transducer at 0psi
 const int pressureMax = 922; //analog reading of pressure transducer at 100psi
 const int transducerMax = 2500; //psi value of transducer being used
-double pressure = 0; //variable to store the value coming from the pressure transducer
+double pressure = 0; //variable to store the value coming from the first pressure transducer
 
-double temperature = 0;
+double temperature1 = 0; //variable to store the value coming from the first temperature sensor
+double temperature2 = 0; //variable to store the value coming from the second temperature sensor
 
+// File output;
 
 void setup() {
   Serial.begin(9600);
@@ -58,8 +59,6 @@ void setup() {
 //  }
 //  Serial.println("Initialization Done.");
 //  Serial.print("\n");
-
-
   
   //Open the file, write initialization statement, close the file
 //  output = SD.open("data.txt", FILE_WRITE);
@@ -95,10 +94,17 @@ void loop() {
   pressure = (( (pressure - pressureZero) / (pressureMax - pressureZero) ) * transducerMax); 
 
   // Collect temperature sensor data, assign it a unit (C) and control its bounds (rated for -40 to 125)
-  int temp_reading = analogRead(temperatureInput);
-  temperature = temp_reading * 5;
-  temperature /= 1024; 
-  temperature = (temperature - 0.5) * 100;
+  int temp_reading1 = analogRead(temperatureInput1);
+  temperature1 = temp_reading1 * 5;
+  temperature1 /= 1024; 
+  temperature1 = (temperature1 - 0.5) * 100;
+
+  int temp_reading2 = analogRead(temperatureInput2);
+  temperature2 = temp_reading2 * 5;
+  temperature2 /= 1024; 
+  temperature2 = (temperature2 - 0.5) * 100;
+  
+  
   // temperature = constrain(temperature,-40,125);
 
   //Print the data to the serial monitor
@@ -120,7 +126,9 @@ void loop() {
   Serial.print(" , ");
   Serial.print(pressure, 3);
   Serial.print(" , ");
-  Serial.print(temperature, 3);
+  Serial.print(temperature1, 3);
+  Serial.print(" , ");
+  Serial.print(temperature2, 3);
   Serial.println();
 
   //Output to SD card and close the file

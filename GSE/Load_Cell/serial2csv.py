@@ -15,9 +15,9 @@ with open('ColdFlowTest5.csv', mode="w") as csv_file:
         data_raw = ser.readline()
 
         try:
-            seconds, pounds, newtons, psi, celcius = data_raw.decode("utf-8").rstrip().split(",")
-            print(seconds, pounds, newtons, psi, celcius)
-            csv_writer.writerow([seconds, pounds, newtons, psi, celcius])
+            seconds, pounds, newtons, psi, celcius_nox, celcius_cc = data_raw.decode("utf-8").rstrip().split(",")
+            print(seconds, pounds, newtons, psi, celcius_nox, celcius_cc)
+            csv_writer.writerow([seconds, pounds, newtons, psi, celcius_nox, celcius_cc])
             csv_file.flush()
             os.fsync(csv_file.fileno())
             print("written to file")
